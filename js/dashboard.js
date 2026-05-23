@@ -1,3 +1,5 @@
+// username - mor_2314 | password - 83r5^_
+
 const API = `https://fakestoreapi.com/products`;
 const tBody = document.querySelector("tbody");
 
@@ -8,6 +10,7 @@ const getProducts = (url) => {
     .then((response) => response.json())
     .then((data) => showProducts(data))
     .catch((error) => {
+      console.error(error);
       Toastify({
         text: "Invalid API URL",
         duration: 3000,
@@ -19,7 +22,6 @@ const getProducts = (url) => {
         },
       }).showToast();
     });
-  throw new Error(console.error(error));
 };
 
 getProducts(API);
@@ -45,3 +47,71 @@ function showProducts(data) {
     `;
   });
 }
+
+const openModal = document.getElementById("openModal");
+const closeModal = document.getElementById("closeModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const modal = document.getElementById("modal");
+
+if (openModal && closeModal && modal) {
+  openModal.addEventListener("click", () => {
+    modal.classList.add("show");
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+  }
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.classList.remove("show");
+    }
+  });
+}
+
+const elForm = document.querySelector(".form");
+
+elForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const image = elForm["image"].value.trim();
+  const title = elForm["title"].value.trim();
+  const price = elForm["price"].value.trim();
+  const category = elForm["category"].value.trim();
+  const description = elForm["description"].value.trim();
+
+  const newProduct = {
+    image: image,
+    title: title,
+    price: price,
+    category: category,
+    description: description,
+  };
+
+  fetch(API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newProduct),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+
+  Toastify({
+    text: "Product added succesfully",
+    duration: 3000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #17b000, #77c93d)",
+    },
+  }).showToast();
+});

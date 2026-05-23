@@ -42,7 +42,57 @@
               type="search"
               placeholder="Write anything you need..."
             />
+            <button id="openModal" class="open-modal-btn">Open Form</button>
           </nav>
+        </div>
+
+        <div class="modal" id="modal">
+          <div class="modal__dialog">
+            <button class="modal__close" id="closeModal">x</button>
+            <form class="form">
+              <input
+                class="input2"
+                type="url"
+                class="image"
+                name="image"
+                placeholder="Enter IMG url..."
+              />
+              <input
+                class="input2"
+                type="text"
+                class="title"
+                name="title"
+                placeholder="Enter Title..."
+              />
+              <input
+                class="input2"
+                type="number"
+                class="price"
+                name="price"
+                placeholder="Enter Price..."
+              />
+              <input
+                class="input2"
+                type="text"
+                class="category"
+                name="category"
+                placeholder="Enter Category..."
+              />
+              <input
+                class="input2"
+                type="text"
+                class="description"
+                name="description"
+                placeholder="Enter Description..."
+              />
+              <div class="form-buttons">
+                <button type="submit" class="btn submit-btn">Add</button>
+                <button type="button" class="btn cancel-btn" id="closeModalBtn">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
 
         <table class="table">

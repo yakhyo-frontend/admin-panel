@@ -102,3 +102,107 @@ body {
     transform: translateY(0);
   }
 }
+
+.modal-open-btn {
+  display: block;
+  margin: 24px auto 0;
+  padding: 0.95rem 1.25rem;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #4d64fd, #ff7eab);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.modal-open-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 12, 30, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 100;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__dialog {
+  width: min(420px, calc(100% - 40px));
+  position: relative;
+  padding: 28px 26px;
+  border-radius: 24px;
+  background: rgba(16, 24, 69, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+  transform: translateY(24px);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal__dialog {
+  transform: translateY(0);
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal__dialog h2 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  color: #f8fbff;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal__form input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 15, 42, 0.95);
+  color: #eef2ff;
+}
+
+.modal__submit {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6e7ffd, #ff91a7);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal__submit:hover {
+  transform: translateY(-1px);
+}

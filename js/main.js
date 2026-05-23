@@ -77,3 +77,53 @@ elForm.addEventListener("submit", (e) => {
       }).showToast();
     });
 });
+
+const openModal = document.getElementById("openModal");
+const closeModal = document.getElementById("closeModal");
+const modal = document.getElementById("modal");
+const modalForm = document.getElementById("modalForm");
+
+openModal.addEventListener("click", () => {
+  modal.classList.add("show");
+});
+
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("show");
+});
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.classList.remove("show");
+  }
+});
+
+modalForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const username = modalForm["username"].value.trim();
+  const password = modalForm["password"].value.trim();
+  if (!username || !password) {
+    Toastify({
+      text: "Iltimos barcha maydonlarni toldiring",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "linear-gradient(to right, #b00000, #c93d3d)",
+      },
+    }).showToast();
+    return;
+  }
+  // Можно здесь вставить ту же логику входа или просто закрыть окно
+  modal.classList.remove("show");
+  Toastify({
+    text: "Форма отправлена",
+    duration: 2000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "linear-gradient(to right, #0fb000, #4dc93d)",
+    },
+  }).showToast();
+});

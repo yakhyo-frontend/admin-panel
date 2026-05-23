@@ -36,6 +36,21 @@
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
+
+    <button id="openModal" class="modal-open-btn">Открыть форму</button>
+
+    <div class="modal" id="modal">
+      <div class="modal__dialog">
+        <button class="modal__close" id="closeModal">&times;</button>
+        <h2>Войти</h2>
+        <form class="modal__form" id="modalForm">
+          <input type="text" placeholder="Username" name="username" />
+          <input type="password" placeholder="Password" name="password" />
+          <button type="submit" class="modal__submit">Войти</button>
+        </form>
+      </div>
+    </div>
+
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
