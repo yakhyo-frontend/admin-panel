@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>DashBoard</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="./styles/dashboard.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sidebar">
+        <ul class="side-list">
+          <li class="side-item">
+            <a href="#" class="side-link">Products</a>
+          </li>
+          <li class="side-item">
+            <a href="#" class="side-link">Users</a>
+          </li>
+          <li class="side-item">
+            <a href="#" class="side-link">Cards</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <div class="nav-container">
+          <nav class="navbar">
+            <h2 class="admin-title">Admin - Dashboard</h2>
+            <input
+              class="input"
+              type="search"
+              placeholder="Write anything you need..."
+            />
+          </nav>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="tr">T/R</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>
