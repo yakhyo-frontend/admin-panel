@@ -41,7 +41,7 @@ function showProducts(data) {
       <td>
         <button class="btn btn-primary">View</button>
         <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger" onclick="deleteProduct(${id})">Delete</button>
       </td>
     </tr>
     `;
@@ -114,4 +114,37 @@ elForm.addEventListener("submit", (e) => {
       background: "linear-gradient(to right, #17b000, #77c93d)",
     },
   }).showToast();
+
+  elForm.reset();
 });
+
+function deleteProduct(id) {
+  if (window.confirm("Are you sure you want to delete this product ?")) {
+    fetch(`https://fakestoreapi.com/products/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    Toastify({
+      text: "Product deleted succesfully",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "linear-gradient(to right, #17b000, #77c93d)",
+      },
+    }).showToast();
+  } else {
+    Toastify({
+      text: "Product deletion cancelled",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "linear-gradient(to right, #b02000, #cd2d17)",
+      },
+    }).showToast();
+  }
+}

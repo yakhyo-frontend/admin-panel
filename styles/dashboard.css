@@ -327,3 +327,11 @@ th {
   box-shadow: 0 15px 15px rgba(110, 127, 253, 0.5);
   color: #edf2ff;
 }
+
+.btn-danger:hover {
+  background: rgb(162, 0, 0);
+  color: white;
+  transition: all 0.7s ease;
+  box-shadow: 0 20px 20px rgba(162, 0, 0, 0.5);
+  transform: scale(1.03);
+}
